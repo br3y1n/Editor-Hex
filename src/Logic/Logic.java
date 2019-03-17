@@ -1,16 +1,22 @@
 package Logic;
 
 import Persistence.Data;
+import Presentation.Model;
 
 public class Logic {
 
-    private Data date;
+    private Data data;
+    private Model model;
 
-    public Data getDatos() {
-        if (date == null) {
-            date = new Data();
+    public Logic (Model get){
+        model = get;
+    }
+    
+    public Data getData() {
+        if (data == null) {
+            data = new Data(this);
         }
-        return date;
+        return data;
     }
 }
   
