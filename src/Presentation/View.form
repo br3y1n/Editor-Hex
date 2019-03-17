@@ -16,7 +16,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="JMenu1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Archive"/>
+            <Property name="text" type="java.lang.String" value="File"/>
             <Property name="name" type="java.lang.String" value="abrir" noResource="true"/>
           </Properties>
           <AccessibilityProperties>
@@ -28,7 +28,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="ButtOpen">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Open..."/>
-                <Property name="name" type="java.lang.String" value="abrir" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="Open" noResource="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtOpenActionPerformed"/>
@@ -138,11 +138,11 @@
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="64" max="-2" attributes="0"/>
+                      <Component id="Scroll1" min="-2" pref="70" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="jScrollPane4" min="-2" pref="560" max="-2" attributes="0"/>
+                      <Component id="Scroll2" min="-2" pref="560" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane3" min="-2" pref="560" max="-2" attributes="0"/>
+                      <Component id="Scroll3" min="-2" pref="560" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="Scroll" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
@@ -156,12 +156,10 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="Scroll" min="-2" pref="329" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jScrollPane1" pref="329" max="32767" attributes="0"/>
-                      <Component id="jScrollPane4" alignment="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jScrollPane3" alignment="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="Scroll" max="32767" attributes="0"/>
+                  <Component id="Scroll2" alignment="0" min="-2" pref="322" max="-2" attributes="0"/>
+                  <Component id="Scroll3" alignment="0" min="-2" pref="322" max="-2" attributes="0"/>
+                  <Component id="Scroll1" alignment="0" min="-2" pref="322" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -249,7 +247,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="Ruta">
+        <Component class="javax.swing.JTextArea" name="Route">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
@@ -493,7 +491,12 @@
         </Property>
       </Properties>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+    <Container class="javax.swing.JScrollPane" name="Scroll1">
+      <Properties>
+        <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+        <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+        <Property name="name" type="java.lang.String" value="Scroll1" noResource="true"/>
+      </Properties>
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
@@ -517,7 +520,10 @@
                 </Column>
               </TableColumnModel>
             </Property>
+            <Property name="enabled" type="boolean" value="false"/>
+            <Property name="focusable" type="boolean" value="false"/>
             <Property name="name" type="java.lang.String" value="Table1" noResource="true"/>
+            <Property name="requestFocusEnabled" type="boolean" value="false"/>
             <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="ff" type="rgb"/>
             </Property>
@@ -531,7 +537,15 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+    <Container class="javax.swing.JScrollPane" name="Scroll3">
+      <Properties>
+        <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+        <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+        <Property name="name" type="java.lang.String" value="Scroll3" noResource="true"/>
+      </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Scroll3"/>
+      </AccessibilityProperties>
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
@@ -659,7 +673,16 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+    <Container class="javax.swing.JScrollPane" name="Scroll2">
+      <Properties>
+        <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+        <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+        <Property name="enabled" type="boolean" value="false"/>
+        <Property name="name" type="java.lang.String" value="Scroll2" noResource="true"/>
+      </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Scroll2"/>
+      </AccessibilityProperties>
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>

@@ -1,4 +1,4 @@
-package presentacion;
+package Presentation;
 
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
@@ -6,20 +6,20 @@ import javax.swing.JScrollBar;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 
-public class vista extends javax.swing.JFrame {
+public class View extends javax.swing.JFrame {
 
     private Model model;
-    private controlador control;
+    private Controller control;
 
-    public vista(Model get) {
+    public View(Model get) {
         model = get;
         initComponents();
-        CapturarEventos();
+        EventListener();
     }
 
-    public controlador getControl() {
+    public Controller getControl() {
         if (control == null) {
-            control = new controlador(this);
+            control = new Controller(this);
         }
         return control;
     }
@@ -28,22 +28,26 @@ public class vista extends javax.swing.JFrame {
         return model;
     }
 
-    public JTextArea getRuta() {
-        return Ruta;
+    public JTextArea getRoute() {
+        return Route;
     }
 
     public JTable getTable1() {
         return Table1;
     }
+
     public JTable getTable2() {
         return Table2;
     }
-        public JTable getTable3() {
+
+    public JTable getTable3() {
         return Table3;
     }
-   public JScrollBar getScroll(){
-       return Scroll;
-   }
+
+    public JScrollBar getScroll() {
+        return Scroll;
+    }
+
     public JLabel getLabelU8() {
         return UInt8;
     }
@@ -84,8 +88,12 @@ public class vista extends javax.swing.JFrame {
         return Float64;
     }
 
-    public JRadioButton getEndian() {
+    public JRadioButton getBigEndian() {
         return Big;
+    }
+
+    public JRadioButton getLittleEndian() {
+        return Little;
     }
 
     @SuppressWarnings("unchecked")
@@ -95,7 +103,7 @@ public class vista extends javax.swing.JFrame {
         Endian = new javax.swing.ButtonGroup();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        Ruta = new javax.swing.JTextArea();
+        Route = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -116,11 +124,11 @@ public class vista extends javax.swing.JFrame {
         SInt64 = new javax.swing.JLabel();
         Float32 = new javax.swing.JLabel();
         Float64 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        Scroll1 = new javax.swing.JScrollPane();
         Table1 = new javax.swing.JTable();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        Scroll3 = new javax.swing.JScrollPane();
         Table3 = new javax.swing.JTable();
-        jScrollPane4 = new javax.swing.JScrollPane();
+        Scroll2 = new javax.swing.JScrollPane();
         Table2 = new javax.swing.JTable();
         Scroll = new javax.swing.JScrollBar();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -135,18 +143,18 @@ public class vista extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("Estado:");
 
-        Ruta.setEditable(false);
-        Ruta.setColumns(20);
-        Ruta.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        Ruta.setLineWrap(true);
-        Ruta.setRows(5);
-        Ruta.setText("Seleccione un archivo");
-        Ruta.setWrapStyleWord(true);
-        Ruta.setAutoscrolls(false);
-        Ruta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        Ruta.setFocusable(false);
-        Ruta.setOpaque(false);
-        jScrollPane5.setViewportView(Ruta);
+        Route.setEditable(false);
+        Route.setColumns(20);
+        Route.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        Route.setLineWrap(true);
+        Route.setRows(5);
+        Route.setText("Seleccione un archivo");
+        Route.setWrapStyleWord(true);
+        Route.setAutoscrolls(false);
+        Route.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        Route.setFocusable(false);
+        Route.setOpaque(false);
+        jScrollPane5.setViewportView(Route);
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Int8 :");
@@ -223,6 +231,10 @@ public class vista extends javax.swing.JFrame {
         Float64.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Float64.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        Scroll1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        Scroll1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        Scroll1.setName("Scroll1"); // NOI18N
+
         Table1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -259,14 +271,21 @@ public class vista extends javax.swing.JFrame {
             }
         });
         Table1.setCellSelectionEnabled(true);
+        Table1.setEnabled(false);
+        Table1.setFocusable(false);
         Table1.setName("Table1"); // NOI18N
+        Table1.setRequestFocusEnabled(false);
         Table1.setSelectionBackground(new java.awt.Color(255, 0, 0));
         Table1.setTableHeader(null);
-        jScrollPane1.setViewportView(Table1);
+        Scroll1.setViewportView(Table1);
         if (Table1.getColumnModel().getColumnCount() > 0) {
             Table1.getColumnModel().getColumn(0).setResizable(false);
         }
         Table1.getAccessibleContext().setAccessibleName("Table1");
+
+        Scroll3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        Scroll3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        Scroll3.setName("Scroll3"); // NOI18N
 
         Table3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -307,7 +326,7 @@ public class vista extends javax.swing.JFrame {
         Table3.setName("Table3"); // NOI18N
         Table3.setSelectionBackground(new java.awt.Color(255, 0, 0));
         Table3.setTableHeader(null);
-        jScrollPane3.setViewportView(Table3);
+        Scroll3.setViewportView(Table3);
         if (Table3.getColumnModel().getColumnCount() > 0) {
             Table3.getColumnModel().getColumn(0).setResizable(false);
             Table3.getColumnModel().getColumn(1).setResizable(false);
@@ -327,6 +346,11 @@ public class vista extends javax.swing.JFrame {
             Table3.getColumnModel().getColumn(15).setResizable(false);
         }
         Table3.getAccessibleContext().setAccessibleName("Table3");
+
+        Scroll2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        Scroll2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        Scroll2.setEnabled(false);
+        Scroll2.setName("Scroll2"); // NOI18N
 
         Table2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -367,7 +391,7 @@ public class vista extends javax.swing.JFrame {
         Table2.setName("Table2"); // NOI18N
         Table2.setSelectionBackground(new java.awt.Color(255, 0, 0));
         Table2.setTableHeader(null);
-        jScrollPane4.setViewportView(Table2);
+        Scroll2.setViewportView(Table2);
         if (Table2.getColumnModel().getColumnCount() > 0) {
             Table2.getColumnModel().getColumn(0).setResizable(false);
             Table2.getColumnModel().getColumn(1).setResizable(false);
@@ -395,11 +419,11 @@ public class vista extends javax.swing.JFrame {
         jMenuBar1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuBar1.setPreferredSize(new java.awt.Dimension(0, 40));
 
-        JMenu1.setText("Archive");
+        JMenu1.setText("File");
         JMenu1.setName("abrir"); // NOI18N
 
         ButtOpen.setText("Open...");
-        ButtOpen.setName("abrir"); // NOI18N
+        ButtOpen.setName("Open"); // NOI18N
         ButtOpen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtOpenActionPerformed(evt);
@@ -472,11 +496,11 @@ public class vista extends javax.swing.JFrame {
                             .addComponent(SInt16, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SInt32, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Scroll1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Scroll2, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Scroll3, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(1624, Short.MAX_VALUE))
@@ -486,11 +510,10 @@ public class vista extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(Scroll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Scroll2, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Scroll3, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Scroll1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -545,6 +568,8 @@ public class vista extends javax.swing.JFrame {
 
         Little.getAccessibleContext().setAccessibleName("Little");
         Big.getAccessibleContext().setAccessibleName("Big");
+        Scroll3.getAccessibleContext().setAccessibleName("Scroll3");
+        Scroll2.getAccessibleContext().setAccessibleName("Scroll2");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -560,12 +585,15 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JLabel Float64;
     private javax.swing.JMenu JMenu1;
     private javax.swing.JRadioButton Little;
-    private javax.swing.JTextArea Ruta;
+    private javax.swing.JTextArea Route;
     private javax.swing.JLabel SInt16;
     private javax.swing.JLabel SInt32;
     private javax.swing.JLabel SInt64;
     private javax.swing.JLabel SInt8;
     private javax.swing.JScrollBar Scroll;
+    private javax.swing.JScrollPane Scroll1;
+    private javax.swing.JScrollPane Scroll2;
+    private javax.swing.JScrollPane Scroll3;
     private javax.swing.JTable Table1;
     private javax.swing.JTable Table2;
     private javax.swing.JTable Table3;
@@ -584,17 +612,19 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     // End of variables declaration//GEN-END:variables
 
-    private void CapturarEventos() {
+    private void EventListener() {
         ButtOpen.addActionListener(getControl());
         Table2.addMouseListener(getControl());
+        Table2.addKeyListener(getControl());
+        Table3.addMouseListener(getControl());
+        Table3.addKeyListener(getControl());
         Little.addMouseListener(getControl());
+        Little.addChangeListener(getControl());
         Big.addMouseListener(getControl());
+        Big.addChangeListener(getControl());
         Scroll.addAdjustmentListener(getControl());
     }
 }

@@ -1,6 +1,6 @@
-package persistencia;
+package Persistence;
 
-public class datos {
+public class Data {
 
     private String URL;
 

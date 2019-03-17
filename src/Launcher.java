@@ -1,12 +1,13 @@
-import presentacion.Model;
+
+import Presentation.Model;
 
 public class Launcher {
-    
-    private Model MyApp;
+
+    private Model myApp;
 
     public Launcher() {
-        MyApp = new Model();
-        MyApp.start();
+        myApp = new Model();
+        myApp.start();
     }
 
     public static void main(String[] args) {
