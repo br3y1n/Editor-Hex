@@ -2,13 +2,15 @@ package presentacion;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JMenuItem;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
 
-public class controlador implements ActionListener, MouseListener {
+public class controlador implements ActionListener, MouseListener, AdjustmentListener {
 
     private vista Vista;
 
@@ -33,7 +35,7 @@ public class controlador implements ActionListener, MouseListener {
         JTable open;
         if (e.getSource() instanceof JTable) {
             open = (JTable) e.getSource();
-            if (open.getName().equals("Table")) {
+            if (open.getName().equals("Table2")) {
                 Vista.getModel().AddressCell();
             }
         }
@@ -62,5 +64,10 @@ public class controlador implements ActionListener, MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
+    }
+
+    @Override
+    public void adjustmentValueChanged(AdjustmentEvent e) {
+       Vista.getModel().leerDatos();
     }
 }

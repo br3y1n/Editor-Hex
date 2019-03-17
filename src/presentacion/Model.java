@@ -1,14 +1,11 @@
 package presentacion;
 
-import java.io.BufferedInputStream;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import javax.swing.JFileChooser;
-import javax.swing.table.DefaultTableModel;
 import logica.logic;
 
-public class modelo implements Runnable {
+public class Model implements Runnable {
 
     private vista Vista;
     private logic Logica;
@@ -21,7 +18,7 @@ public class modelo implements Runnable {
     public void run() {
     }
 
-    public void iniciar() {
+    public void start() {
         getVista().setSize(1350, 650);
         getVista().setVisible(true);
         Hilos = new Thread(this);
@@ -43,29 +40,30 @@ public class modelo implements Runnable {
     }
 
     public void AddressCell() {
-        Column = getVista().getTable().getSelectedColumn();
-        Row = getVista().getTable().getSelectedRow();
-        if (Column > 1 && Column < 18) {
-            getVista().getTable().changeSelection(Row, Column + 17, true, false);
+        Column = getVista().getTable2().getSelectedColumn();
+        Row = getVista().getTable2().getSelectedRow();
+        if (Column < 16) {
+            getVista().getTable3().changeSelection(Row, Column, false, false);
+            getVista().getTable1().changeSelection(Row, 0, false, false);
             this.MapOut();
         }
     }
 
     public void MapOut() {
-        if (Column > 1 && Column < 18) {
+        if (Column < 16) {
             String[] Value = new String[8];
-            if (Column > 10) {
+            if (Column > 8) {
 
-                int h = 18 - Column;
+                int h = 16 - Column;
                 int m = 0;
 
                 for (int i = 0; i < h; i++) {
-                    Value[m] = (String) getVista().getTable().getValueAt(Row, Column + i);
+                    Value[m] = (String) getVista().getTable2().getValueAt(Row, Column + i);
                     m++;
                 }
                 for (int i = 0; i < (8 - h); i++) {
                     if (Row != Counter1) {
-                        Value[m] = (String) getVista().getTable().getValueAt(Row + 1, 2 + i);
+                        Value[m] = (String) getVista().getTable2().getValueAt(Row + 1, 2 + i);
 
                     } else {
                         Value[m] = null;
@@ -74,7 +72,7 @@ public class modelo implements Runnable {
                 }
             } else {
                 for (int i = 0; i < 8; i++) {
-                    Value[i] = (String) getVista().getTable().getValueAt(Row, Column + i);
+                    Value[i] = (String) getVista().getTable2().getValueAt(Row, Column + i);
                 }
             }
 
@@ -150,38 +148,42 @@ public class modelo implements Runnable {
     }
 
     public void leerDatos() {
-        Counter1 = 0;
         String Offset = "";
         try {
-            FileInputStream Archive = new FileInputStream(getLogica().getDatos().getURL());
-            BufferedInputStream Buffer = new BufferedInputStream(Archive);
-            DataInputStream Data = new DataInputStream(Buffer);
-            try {
-                while (true) {
-                    Offset = String.format("%08X", Counter1 * 16);
-                    String[] Columns = null;
-                    DefaultTableModel Tabla = (DefaultTableModel) getVista().getTable().getModel();
-                    Tabla.addRow(Columns);
-                    getVista().getTable().setValueAt(Offset, Counter1, 0);
+            RandomAccessFile Data = new RandomAccessFile(getLogica().getDatos().getURL(),"r");
+            long Length = Data.length();
+            long TamaScroll = Data.length()/16;
+            if (TamaScroll > 20){
+            getVista().getScroll().setMaximum((int)TamaScroll);
+            }
+            Data.seek((getVista().getScroll().getValue())*16);
+            byte [] Input = new byte [320];
+            Data.read(Input, 0, 320);
+            Counter1 = 0;
+            for (int j= 0; j < 20;j++){
+                        Offset = String.format("%08X", Counter1 * 16);
+                        getVista().getTable1().setValueAt(Offset, Counter1, 0);
+            
                     for (int i = 0; i < 16; i++) {
-                        byte Input = Data.readByte();
-                        int Int = Integer.parseInt(String.format("%d", Input & 0xFF));
+   
+          
+                        int Int = Integer.parseInt(String.format("%d", Input[i+(j*16)] & 0xFF));
                         if (Int >= 0 && Int <= 32 || Int == 127) {
                             Int = 46;
                         }
-                        String ValueHex = String.format("%02x", Input);
+                        String ValueHex = String.format("%02x", Input[i+(j*16)]);
                         String Char = String.valueOf((char) Int);
-                        getVista().getTable().setValueAt(ValueHex, Counter1, i + 2);
-                        getVista().getTable().setValueAt(Char, Counter1, i + 19);
+                        getVista().getTable2().setValueAt(ValueHex, Counter1, i);
+                        getVista().getTable3().setValueAt(Char, Counter1, i);
                     }
+                    
                     Counter1++;
-                }
-            } catch (IOException eo) {
-                Buffer.close();
-                System.out.println(Counter1);
             }
+ Data.close();
+                
         } catch (IOException e) {
             System.out.println("Error  " + e.toString());
+            
         }
     }
 }

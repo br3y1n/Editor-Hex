@@ -2,15 +2,16 @@ package presentacion;
 
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollBar;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 
 public class vista extends javax.swing.JFrame {
 
-    private modelo model;
+    private Model model;
     private controlador control;
 
-    public vista(modelo get) {
+    public vista(Model get) {
         model = get;
         initComponents();
         CapturarEventos();
@@ -23,7 +24,7 @@ public class vista extends javax.swing.JFrame {
         return control;
     }
 
-    public modelo getModel() {
+    public Model getModel() {
         return model;
     }
 
@@ -31,10 +32,18 @@ public class vista extends javax.swing.JFrame {
         return Ruta;
     }
 
-    public JTable getTable() {
-        return Table;
+    public JTable getTable1() {
+        return Table1;
     }
-
+    public JTable getTable2() {
+        return Table2;
+    }
+        public JTable getTable3() {
+        return Table3;
+    }
+   public JScrollBar getScroll(){
+       return Scroll;
+   }
     public JLabel getLabelU8() {
         return UInt8;
     }
@@ -87,8 +96,6 @@ public class vista extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         Ruta = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        Table = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -109,6 +116,13 @@ public class vista extends javax.swing.JFrame {
         SInt64 = new javax.swing.JLabel();
         Float32 = new javax.swing.JLabel();
         Float64 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Table1 = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        Table3 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        Table2 = new javax.swing.JTable();
+        Scroll = new javax.swing.JScrollBar();
         jMenuBar1 = new javax.swing.JMenuBar();
         JMenu1 = new javax.swing.JMenu();
         ButtOpen = new javax.swing.JMenuItem();
@@ -133,73 +147,6 @@ public class vista extends javax.swing.JFrame {
         Ruta.setFocusable(false);
         Ruta.setOpaque(false);
         jScrollPane5.setViewportView(Ruta);
-
-        jScrollPane2.setOpaque(false);
-
-        Table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        Table.setCellSelectionEnabled(true);
-        Table.setName("Table"); // NOI18N
-        Table.setSelectionBackground(new java.awt.Color(255, 0, 0));
-        Table.setShowHorizontalLines(false);
-        Table.setShowVerticalLines(false);
-        Table.setTableHeader(null);
-        jScrollPane2.setViewportView(Table);
-        if (Table.getColumnModel().getColumnCount() > 0) {
-            Table.getColumnModel().getColumn(0).setResizable(false);
-            Table.getColumnModel().getColumn(0).setPreferredWidth(200);
-            Table.getColumnModel().getColumn(1).setResizable(false);
-            Table.getColumnModel().getColumn(1).setPreferredWidth(200);
-            Table.getColumnModel().getColumn(2).setResizable(false);
-            Table.getColumnModel().getColumn(3).setResizable(false);
-            Table.getColumnModel().getColumn(4).setResizable(false);
-            Table.getColumnModel().getColumn(5).setResizable(false);
-            Table.getColumnModel().getColumn(6).setResizable(false);
-            Table.getColumnModel().getColumn(7).setResizable(false);
-            Table.getColumnModel().getColumn(8).setResizable(false);
-            Table.getColumnModel().getColumn(9).setResizable(false);
-            Table.getColumnModel().getColumn(10).setResizable(false);
-            Table.getColumnModel().getColumn(11).setResizable(false);
-            Table.getColumnModel().getColumn(12).setResizable(false);
-            Table.getColumnModel().getColumn(13).setResizable(false);
-            Table.getColumnModel().getColumn(14).setResizable(false);
-            Table.getColumnModel().getColumn(15).setResizable(false);
-            Table.getColumnModel().getColumn(16).setResizable(false);
-            Table.getColumnModel().getColumn(17).setResizable(false);
-            Table.getColumnModel().getColumn(18).setResizable(false);
-            Table.getColumnModel().getColumn(18).setPreferredWidth(200);
-            Table.getColumnModel().getColumn(19).setResizable(false);
-            Table.getColumnModel().getColumn(20).setResizable(false);
-            Table.getColumnModel().getColumn(21).setResizable(false);
-            Table.getColumnModel().getColumn(22).setResizable(false);
-            Table.getColumnModel().getColumn(23).setResizable(false);
-            Table.getColumnModel().getColumn(24).setResizable(false);
-            Table.getColumnModel().getColumn(25).setResizable(false);
-            Table.getColumnModel().getColumn(26).setResizable(false);
-            Table.getColumnModel().getColumn(27).setResizable(false);
-            Table.getColumnModel().getColumn(28).setResizable(false);
-            Table.getColumnModel().getColumn(29).setResizable(false);
-            Table.getColumnModel().getColumn(30).setResizable(false);
-            Table.getColumnModel().getColumn(31).setResizable(false);
-            Table.getColumnModel().getColumn(32).setResizable(false);
-            Table.getColumnModel().getColumn(33).setResizable(false);
-            Table.getColumnModel().getColumn(34).setResizable(false);
-        }
-        Table.getAccessibleContext().setAccessibleName("Table");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Int8 :");
@@ -276,6 +223,175 @@ public class vista extends javax.swing.JFrame {
         Float64.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Float64.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        Table1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                ""
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        Table1.setCellSelectionEnabled(true);
+        Table1.setName("Table1"); // NOI18N
+        Table1.setSelectionBackground(new java.awt.Color(255, 0, 0));
+        Table1.setTableHeader(null);
+        jScrollPane1.setViewportView(Table1);
+        if (Table1.getColumnModel().getColumnCount() > 0) {
+            Table1.getColumnModel().getColumn(0).setResizable(false);
+        }
+        Table1.getAccessibleContext().setAccessibleName("Table1");
+
+        Table3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        Table3.setCellSelectionEnabled(true);
+        Table3.setName("Table3"); // NOI18N
+        Table3.setSelectionBackground(new java.awt.Color(255, 0, 0));
+        Table3.setTableHeader(null);
+        jScrollPane3.setViewportView(Table3);
+        if (Table3.getColumnModel().getColumnCount() > 0) {
+            Table3.getColumnModel().getColumn(0).setResizable(false);
+            Table3.getColumnModel().getColumn(1).setResizable(false);
+            Table3.getColumnModel().getColumn(2).setResizable(false);
+            Table3.getColumnModel().getColumn(3).setResizable(false);
+            Table3.getColumnModel().getColumn(4).setResizable(false);
+            Table3.getColumnModel().getColumn(5).setResizable(false);
+            Table3.getColumnModel().getColumn(6).setResizable(false);
+            Table3.getColumnModel().getColumn(7).setResizable(false);
+            Table3.getColumnModel().getColumn(8).setResizable(false);
+            Table3.getColumnModel().getColumn(9).setResizable(false);
+            Table3.getColumnModel().getColumn(10).setResizable(false);
+            Table3.getColumnModel().getColumn(11).setResizable(false);
+            Table3.getColumnModel().getColumn(12).setResizable(false);
+            Table3.getColumnModel().getColumn(13).setResizable(false);
+            Table3.getColumnModel().getColumn(14).setResizable(false);
+            Table3.getColumnModel().getColumn(15).setResizable(false);
+        }
+        Table3.getAccessibleContext().setAccessibleName("Table3");
+
+        Table2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        Table2.setCellSelectionEnabled(true);
+        Table2.setName("Table2"); // NOI18N
+        Table2.setSelectionBackground(new java.awt.Color(255, 0, 0));
+        Table2.setTableHeader(null);
+        jScrollPane4.setViewportView(Table2);
+        if (Table2.getColumnModel().getColumnCount() > 0) {
+            Table2.getColumnModel().getColumn(0).setResizable(false);
+            Table2.getColumnModel().getColumn(1).setResizable(false);
+            Table2.getColumnModel().getColumn(2).setResizable(false);
+            Table2.getColumnModel().getColumn(3).setResizable(false);
+            Table2.getColumnModel().getColumn(4).setResizable(false);
+            Table2.getColumnModel().getColumn(5).setResizable(false);
+            Table2.getColumnModel().getColumn(6).setResizable(false);
+            Table2.getColumnModel().getColumn(7).setResizable(false);
+            Table2.getColumnModel().getColumn(8).setResizable(false);
+            Table2.getColumnModel().getColumn(9).setResizable(false);
+            Table2.getColumnModel().getColumn(10).setResizable(false);
+            Table2.getColumnModel().getColumn(11).setResizable(false);
+            Table2.getColumnModel().getColumn(12).setResizable(false);
+            Table2.getColumnModel().getColumn(13).setResizable(false);
+            Table2.getColumnModel().getColumn(14).setResizable(false);
+            Table2.getColumnModel().getColumn(15).setResizable(false);
+        }
+        Table2.getAccessibleContext().setAccessibleName("Table2");
+
+        Scroll.setMaximum(20);
+        Scroll.setVisibleAmount(20);
+        Scroll.setName("Scroll"); // NOI18N
+
         jMenuBar1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuBar1.setPreferredSize(new java.awt.Dimension(0, 40));
 
@@ -307,6 +423,29 @@ public class vista extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(531, 531, 531)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(77, 77, 77)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(SInt8, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Float64, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Float32, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(83, 83, 83)
+                                        .addComponent(Big, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(Little, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -330,48 +469,62 @@ public class vista extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(SInt64, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(77, 77, 77)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(SInt16, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(SInt8, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(SInt32, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Float64, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Float32, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(83, 83, 83)
-                                        .addComponent(Big, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(Little, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 2880, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(SInt16, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SInt32, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(1624, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(54, 54, 54)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(SInt8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(SInt16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(SInt32, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Float32, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Float64, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(Little, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Big, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(18, 18, 18)
+                                .addComponent(SInt64, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(UInt8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -386,33 +539,8 @@ public class vista extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(UInt64, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(54, 54, 54)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(SInt8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(SInt16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(SInt32, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(Float32, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(18, 18, 18)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(Float64, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(18, 18, 18)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(Little, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(Big, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGap(18, 18, 18)
-                                    .addComponent(SInt64, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(UInt64, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
 
         Little.getAccessibleContext().setAccessibleName("Little");
@@ -437,7 +565,10 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JLabel SInt32;
     private javax.swing.JLabel SInt64;
     private javax.swing.JLabel SInt8;
-    private javax.swing.JTable Table;
+    private javax.swing.JScrollBar Scroll;
+    private javax.swing.JTable Table1;
+    private javax.swing.JTable Table2;
+    private javax.swing.JTable Table3;
     private javax.swing.JLabel UInt16;
     private javax.swing.JLabel UInt32;
     private javax.swing.JLabel UInt64;
@@ -453,14 +584,17 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     // End of variables declaration//GEN-END:variables
 
     private void CapturarEventos() {
         ButtOpen.addActionListener(getControl());
-        Table.addMouseListener(getControl());
+        Table2.addMouseListener(getControl());
         Little.addMouseListener(getControl());
         Big.addMouseListener(getControl());
+        Scroll.addAdjustmentListener(getControl());
     }
 }
