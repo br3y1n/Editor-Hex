@@ -62,7 +62,7 @@ public class Model implements Runnable {
                     m++;
                 }
                 for (int i = 0; i < (8 - h); i++) {
-                    if (Row != Counter1) {
+                    if (Row != 19) {
                         Value[m] = (String) getVista().getTable2().getValueAt(Row + 1, 2 + i);
 
                     } else {
@@ -153,16 +153,21 @@ public class Model implements Runnable {
             RandomAccessFile Data = new RandomAccessFile(getLogica().getDatos().getURL(),"r");
             long Length = Data.length();
             long TamaScroll = Data.length()/16;
+            long colMore = Data.length() -TamaScroll*16;
+            if (colMore != 0){
+                TamaScroll++;
+            }
+            Counter1 = (int) TamaScroll + 20;
             if (TamaScroll > 20){
             getVista().getScroll().setMaximum((int)TamaScroll);
             }
+            
             Data.seek((getVista().getScroll().getValue())*16);
-            byte [] Input = new byte [320];
-            Data.read(Input, 0, 320);
-            Counter1 = 0;
+            byte [] Input = new byte [336];       
+            Data.read(Input, 0, 336);
             for (int j= 0; j < 20;j++){
-                        Offset = String.format("%08X", Counter1 * 16);
-                        getVista().getTable1().setValueAt(Offset, Counter1, 0);
+                        Offset = String.format("%08X", ((getVista().getScroll().getValue()+j) * 16));
+                        getVista().getTable1().setValueAt(Offset, j, 0);
             
                     for (int i = 0; i < 16; i++) {
    
@@ -173,11 +178,9 @@ public class Model implements Runnable {
                         }
                         String ValueHex = String.format("%02x", Input[i+(j*16)]);
                         String Char = String.valueOf((char) Int);
-                        getVista().getTable2().setValueAt(ValueHex, Counter1, i);
-                        getVista().getTable3().setValueAt(Char, Counter1, i);
+                        getVista().getTable2().setValueAt(ValueHex, j, i);
+                        getVista().getTable3().setValueAt(Char, j, i);
                     }
-                    
-                    Counter1++;
             }
  Data.close();
                 
