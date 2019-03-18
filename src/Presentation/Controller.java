@@ -115,7 +115,7 @@ public class Controller implements ActionListener, MouseListener, AdjustmentList
 
     @Override
     public void adjustmentValueChanged(AdjustmentEvent e) {
-        view.getModel().readData();
+        view.getModel().loadDataInCells();
         view.getModel().MapOut();
     }
 

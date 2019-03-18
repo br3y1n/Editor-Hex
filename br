@@ -1,0 +1,42 @@
+[33mcommit 09ee098da4fa73d0a64285eeaa085f8fc03e604a[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: br3y1n <br3y1n>
+Date:   Sun Mar 17 17:38:51 2019 -0500
+
+    better syntax, revise the MVC, yet
+
+[33mcommit 16726c03a695c0307edaeb565284f12698e94f47[m[33m ([m[1;31mGitHubHexEditor/master[m[33m)[m
+Merge: 2401e0c 780a857
+Author: br3y1n <br3y1n>
+Date:   Sun Mar 17 16:45:06 2019 -0500
+
+    Merge branch 'master' of https://github.com/br3y1n/Editor-Hex
+
+[33mcommit 2401e0cf0cf7e8285a4bac049f274dbcf40fee19[m
+Author: br3y1n <br3y1n>
+Date:   Sun Mar 17 16:27:47 2019 -0500
+
+    executable Version, revise the MVC
+
+[33mcommit d9cd0fc4e0ff22dcbf27ed9c922063ec826c19df[m
+Author: br3y1n <br3y1n>
+Date:   Sun Mar 17 12:13:46 2019 -0500
+
+    correcion de fallas, desborde de datos
+
+[33mcommit a7397888f544e2fc435fce11d8c9efa35c41dcbf[m
+Author: br3y1n <br3y1n>
+Date:   Sun Mar 17 04:14:34 2019 -0500
+
+    se aplico el la lectura de bytes por partes
+
+[33mcommit 780a857ada307e3c3a1014bb85d270371a677b49[m
+Author: br3y1n <48343300+br3y1n@users.noreply.github.com>
+Date:   Fri Mar 8 00:19:03 2019 -0500
+
+    Create README.md
+
+[33mcommit 41e0f6ebc14b71dbb6cbde7e49c9ee65122b2bb9[m
+Author: br3y1n <br3y1n>
+Date:   Fri Mar 8 00:11:10 2019 -0500
+
+    Primera version de la app desk funcional
