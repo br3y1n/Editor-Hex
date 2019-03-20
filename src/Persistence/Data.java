@@ -37,7 +37,7 @@ public class Data {
         return ScrollSize;
     }
 
-    public byte[] getDataString(int PosPointer) {
+    public byte[] getDataString(long PosPointer) {
 
         byte[] Input = null;
         try {
@@ -52,7 +52,7 @@ public class Data {
         return Input;
     }
 
-    public String[] getValuesToConvert(int PosPointer, int Row, int Column) {
+    public String[] getValuesToConvert(long PosPointer, int Row, int Column) {
 
         String[] Value = new String[8];
         long pointerOffset = 0;
@@ -72,7 +72,6 @@ public class Data {
                 }
 
             } else if (DataString.length() >= pointerOffset) {
-
                 DataString.seek(pointerOffset);
                 Input = new byte[8];
                 DataString.read(Input, 0, (int) dif);

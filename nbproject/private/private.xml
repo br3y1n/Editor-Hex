@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="4"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Brian%20Arango/Documents/NetBeansProjects/Editor%20Hex/src/presentacion/controlador.java</file>
-            <file>file:/C:/Users/Brian%20Arango/Documents/NetBeansProjects/Editor%20Hex/src/presentacion/vista.java</file>
+            <file>file:/C:/Users/Brian%20Arango/Documents/NetBeansProjects/Editor%20Hex/src/Presentation/View.java</file>
+            <file>file:/C:/Users/Brian%20Arango/Documents/NetBeansProjects/Editor%20Hex/src/Persistence/Data.java</file>
+            <file>file:/C:/Users/Brian%20Arango/Documents/NetBeansProjects/Editor%20Hex/src/Logic/Logic.java</file>
+            <file>file:/C:/Users/Brian%20Arango/Documents/NetBeansProjects/Editor%20Hex/src/Presentation/Controller.java</file>
             <file>file:/C:/Users/Brian%20Arango/Documents/NetBeansProjects/Editor%20Hex/src/Launcher.java</file>
-            <file>file:/C:/Users/Brian%20Arango/Documents/NetBeansProjects/Editor%20Hex/src/presentacion/Model.java</file>
+            <file>file:/C:/Users/Brian%20Arango/Documents/NetBeansProjects/Editor%20Hex/src/Presentation/Model.java</file>
         </group>
     </open-files>
 </project-private>

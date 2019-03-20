@@ -1,7 +1,5 @@
 package Presentation;
 
-import java.io.IOException;
-import java.io.RandomAccessFile;
 import javax.swing.JFileChooser;
 import Logic.Logic;
 
@@ -65,14 +63,19 @@ public class Model implements Runnable {
 
         String Offset = "";
         long ScrollSize = getLogic().getData().getScrollSize();
+       /* String o = Long.toUnsignedString(ScrollSize);
         
+        int m = Integer.parseUnsignedInt(o); */
+   
         if (ScrollSize > 20) {
-            getView().getScroll().setMaximum((int) ScrollSize);
+            getView().getScroll().setMaximum((int)ScrollSize);
         } else {
             getView().getScroll().setMaximum(20);
         }
         
-        int PosPointer = getView().getScroll().getValue() * 16;
+        int intPosPointer = getView().getScroll().getValue() * 16;
+        long PosPointer = Integer.toUnsignedLong(intPosPointer);
+        
         byte[] ValueCell = getLogic().getData().getDataString(PosPointer);
 
         for (int j = 0; j < 20; j++) {
@@ -82,6 +85,7 @@ public class Model implements Runnable {
             for (int i = 0; i < 16; i++) {
 
                 int Int = Integer.parseInt(String.format("%d", ValueCell[i + (j * 16)] & 0xFF));
+               
                 if (Int >= 0 && Int <= 32 || Int == 127) {
                     Int = 46;
                 }
@@ -113,7 +117,8 @@ public class Model implements Runnable {
         
         String[] Value = new String[8];
 
-        int PosPointer = getView().getScroll().getValue() * 16;
+        int h = getView().getScroll().getValue() * 16;
+        long PosPointer = Integer.toUnsignedLong(h);
         Value = getLogic().getData().getValuesToConvert(PosPointer, Row, Column);
 
         String[] DataPrint = getLogic().Convert(Value);
